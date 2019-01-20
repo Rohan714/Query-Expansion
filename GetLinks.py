@@ -38,14 +38,18 @@ def bingSearch(search_term, i):
     search_results = response.json()
     #print(response)
     #print(search_results)
-    name="links"+str(i)+".txt"
-    file=open("C:\\Users\\DELL\\Desktop\\Project\\bing\\QueryLinks\\"+name,'w')
+    #name=search_term+".txt"
+    l=len(search_term)
+    name=search_term[:l-1]+".txt"
+    #print(name)
+    file=open("C:\\Users\\Kritesh\\Desktop\\Project\\Bing\\QueryLinks\\"+name,'w')
     for v in search_results["webPages"]["value"]:
         #print(v["url"])
         #print(" ")
         file.write(v["url"]+"\n")
-     
- i=0
+        
+#bingSearch("swine flu vaccine",0)
+i=0
 file= open("C:\\Users\\Kritesh\\Desktop\\Project\\query_lists.txt", 'r')
 while True:
     s=file.readline()
