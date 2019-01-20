@@ -15,8 +15,6 @@ i=0
 file= open("C:\\Users\\Kritesh\\Desktop\\Project\\query_lists.txt", 'r')
 while True:
     s=file.readline()
-    if(i>=25):
-        break
     if(s==""):
         break
     googleSearch(s,i)
