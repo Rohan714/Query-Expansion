@@ -1,9 +1,24 @@
-def googleSearch(query):
-    from googlesearch import search 
-    query = "swine flu vaccine"
+def googleSearch(query,i):
+    try: 
+        from googlesearch import search 
+    except ImportError:  
+        print("No module named 'google' found") 
       
-    for j in search(query, tld="co.in", num=50, start=0,stop=None, pause=2.0): 
-        print(j)
+    # to search 
+    name="links"+str(i)+".txt"
+    file=open("C:\\Users\\Kritesh\\Desktop\\Project\\Google\\QueryLinks\\"+name,'w')
+      
+    for j in search(query, tld="co.in", num=50, stop=1, pause=2): 
+        file.write(j+"\n")
+i=0
+file= open("C:\\Users\\Kritesh\\Desktop\\Project\\query_lists.txt", 'r')
+while True:
+    s=file.readline()
+    if(s==""):
+        break
+    googleSearch(s,i)
+    i=i+1
+    print(i) 
         
 #==========================================================
         
@@ -29,6 +44,16 @@ def bingSearch(search_term, i):
         #print(v["url"])
         #print(" ")
         file.write(v["url"]+"\n")
+     
+ i=0
+file= open("C:\\Users\\Kritesh\\Desktop\\Project\\query_lists.txt", 'r')
+while True:
+    s=file.readline()
+    if(s==""):
+        break
+    bingSearch(s,i)
+    i=i+1
+    print(i)
         
 #========================================================================
         
@@ -64,12 +89,3 @@ def yahooSearch():
      
 #==========================================================================
         
-bingSearch("swine flu vaccine",0)
-i=0
-with open("C:\\Users\\DELL\\Desktop\\Project\\New data\\query_list.txt", 'r') as file:
-    bingSearch(file.readline(),i)
-    i=i+1
-
-googleSearch("swine flu vaccine")
-
-yahooSearch()
