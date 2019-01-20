@@ -5,7 +5,8 @@ def googleSearch(query,i):
         print("No module named 'google' found") 
       
     # to search 
-    name="links"+str(i)+".txt"
+    l=len(query)
+    name=query[:l-1]+".txt"
     file=open("C:\\Users\\Kritesh\\Desktop\\Project\\Google\\QueryLinks\\"+name,'w')
       
     for j in search(query, tld="co.in", num=50, stop=1, pause=2): 
@@ -14,11 +15,14 @@ i=0
 file= open("C:\\Users\\Kritesh\\Desktop\\Project\\query_lists.txt", 'r')
 while True:
     s=file.readline()
+    if(i>=25):
+        break
     if(s==""):
         break
     googleSearch(s,i)
     i=i+1
-    print(i) 
+    print(i)    
+
         
 #==========================================================
         
