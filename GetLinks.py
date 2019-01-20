@@ -7,7 +7,7 @@ def googleSearch(query):
         
 #==========================================================
         
-def bingSearch(search_term):
+def bingSearch(search_term, i):
 
     subscription_key = '6726f5f948824c1f8b3a5cd619745b97'
     assert subscription_key
@@ -23,7 +23,8 @@ def bingSearch(search_term):
     search_results = response.json()
     #print(response)
     #print(search_results)
-    file=open("C:\\Users\\DELL\\Desktop\\Project\\bing\\links.txt",'w')
+    name="links"+str(i)+".txt"
+    file=open("C:\\Users\\DELL\\Desktop\\Project\\bing\\QueryLinks\\"+name,'w')
     for v in search_results["webPages"]["value"]:
         #print(v["url"])
         #print(" ")
@@ -63,7 +64,11 @@ def yahooSearch():
      
 #==========================================================================
         
-bingSearch("swine flu vaccine")
+bingSearch("swine flu vaccine",0)
+i=0
+with open("C:\\Users\\DELL\\Desktop\\Project\\New data\\query_list.txt", 'r') as file:
+    bingSearch(file.readline(),i)
+    i=i+1
 
 googleSearch("swine flu vaccine")
 
