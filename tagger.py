@@ -64,9 +64,6 @@ def postagger(name, adress, SE):
         for i in query_tagged:
             filehandle.write('%s\n' % i)
     
-query="swine flu vaccine"
-address="C:\\Users\\DELL\\Desktop\\Project\\Bing\\paragraph\\"+query+".txt"
-postagger("swine flu vaccine", address, "Bing")   
 file=open("C:\\Users\\DELL\\Desktop\\Project\\query_lists.txt",'r')
 while(True):
     query=file.readline()
@@ -74,6 +71,9 @@ while(True):
         break
     l=len(query)
     query=query[:l-1]
+    
+    address="C:\\Users\\DELL\\Desktop\\Project\\Google\\paragraph\\"+query+".txt"
+    postagger(query, address, "Google")
     
     address="C:\\Users\\DELL\\Desktop\\Project\\Bing\\paragraph\\"+query+".txt"
     postagger(query, address, "Bing")
