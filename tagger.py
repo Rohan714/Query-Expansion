@@ -2,7 +2,7 @@ import nltk
 #nltk.download('punkt')
 #nltk.download('averaged_perceptron_tagger')
 
-def postagger(query, adress, SE):  
+def postagger(name, adress, SE):  
     
     file = open(adress,'r', encoding="utf-8")
     words=[]
@@ -56,11 +56,11 @@ def postagger(query, adress, SE):
         print(jk)
         jk+=1
                     
-    with open("C:\\Users\\DELL\\Desktop\\Project\\"+SE+"\\paraExtended\\"+query+".txt",'a') as filehandle:
+    with open("C:\\Users\\DELL\\Desktop\\Project\\"+SE+"\\paraExtended\\"+name+".txt",'a',encoding="utf-8") as filehandle:
         for i in words:
             filehandle.write('%s\n' % i)
 
-    with open("C:\\Users\\DELL\\Desktop\\Project\\"+SE+"\\paraTagged\\"+query+".txt",'a') as filehandle:
+    with open("C:\\Users\\DELL\\Desktop\\Project\\"+SE+"\\paraTagged\\"+name+".txt",'a',encoding="utf-8") as filehandle:
         for i in query_tagged:
             filehandle.write('%s\n' % i)
     
