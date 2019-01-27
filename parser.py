@@ -22,10 +22,9 @@ def parseLink(query, adress, SE):
  
         #writing content of each page to a text file
         with open("C:\\Users\\DELL\\Desktop\\Project\\"+SE+"\\paragraph\\"+query+".txt", 'a',encoding="utf-8") as file1:
-            for x in soup.find_all('header'):
+            for x in soup.find_all('div'):
                 file1.write(x.get_text()+"\n")
-            for x in soup.find_all('p'):
-                file1.write(x.get_text()+"\n")
+            
 
               
 file=open("C:\\Users\\DELL\\Desktop\\Project\\query_lists.txt",'r')
@@ -38,8 +37,8 @@ while(True):
     l=len(query)
     query=query[:l-1]
     
-    #address="C:\\Users\\DELL\\Desktop\\Project\\Google\\QueryLinks\\"+query+".txt"
-    #parseLink(query, address, "Google")
+    address="C:\\Users\\DELL\\Desktop\\Project\\Google\\QueryLinks\\"+query+".txt"
+    parseLink(query, address, "Google")
     
     address="C:\\Users\\DELL\\Desktop\\Project\\Bing\\QueryLinks\\"+query+".txt"
     parseLink(query, address, "Bing")
