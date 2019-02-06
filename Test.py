@@ -17,7 +17,7 @@ def correct(query):
             s=re.sub("[\{(<\[].*?[\>)}\]]", "", s)
             file1.write(s)
             s=""
-            
+        #\{([^()]|())*\}    
         if(r==""):
             break
             
