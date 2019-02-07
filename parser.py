@@ -60,8 +60,8 @@ while(True):
     l=len(query)
     query=query[:l-1]
     
-    #address="C:\\Users\\DELL\\Desktop\\Project\\Google\\QueryLinks\\"+query+".txt"
-    #parseLink(query, address, "Google")
+    address="C:\\Users\\DELL\\Desktop\\Project\\Google\\QueryLinks\\"+query+".txt"
+    parseLink(query, address, "Google")
     
     address="C:\\Users\\DELL\\Desktop\\Project\\Bing\\QueryLinks\\"+query+".txt"
     parseLink(query, address, "Bing")
