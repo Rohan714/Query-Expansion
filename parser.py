@@ -1,6 +1,5 @@
-import requests
 from bs4 import BeautifulSoup, Comment
-
+import requests
 
 def el_is_visible(element):
     try:
@@ -20,7 +19,7 @@ def get_visible_text(soup):
     except:
         return ''
   
-    
+
 def parseLink(query, adress, SE):
     file=open(adress,'r')
     while(True):
@@ -30,28 +29,31 @@ def parseLink(query, adress, SE):
         l=len(link)
         link=link[:l-1]
         print(link)
+        if(link.find(".pdf")!=-1):
+            continue
         x=link[l-4:l-1]
         if(x=="pdf"):
             continue
         try:
-            page = requests.get(link)
+            headers={
+                    'User-Agent':'Pankaj',
+                    'From':'pcnitp@gmail.com'}
+            #page = requests.get(link)
+            page=requests.get(link,headers=headers)
             soup = BeautifulSoup(page.text,'html.parser')
         except:
             continue
-        
+
         text=get_visible_text(soup)
         #writing content of each page to a text file
-        with open("C:\\Users\\DELL\\Desktop\\Project\\"+SE+"\\paragraph1\\"+query+".txt", 'a',encoding="utf-8") as file1:
-            '''for x in soup.find_all('div'):
-                file1.write(x.get_text()+"\n")
-            for x in soup.find_all('p'):
-                file1.write(x.get_text()+"\n")
-                '''
-            file1.write(text)
-
-            
+        file1 =open("C:\\Users\\DELL\\Desktop\\Project\\"+SE+"\\paragraph1\\"+query+".txt", 'a',encoding="utf-8")
+        file1.write(link+"\n")
+        file1.write(text)
+           
+                
+    
 file=open("C:\\Users\\DELL\\Desktop\\Project\\query_lists.txt",'r')
-#i=0
+i=0
 while(True):
     query=file.readline()
     if(query==""):
