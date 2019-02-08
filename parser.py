@@ -45,6 +45,8 @@ def parseLink(query, adress, SE):
             continue
 
         text=get_visible_text(soup)
+        text=re.sub(r'([^\s\w]|_)+', '', text)
+        text=re.sub(r'[^\x00-\x7F]+',' ',text )
         #writing content of each page to a text file
         file1 =open("C:\\Users\\DELL\\Desktop\\Project\\"+SE+"\\paragraph1\\"+query+".txt", 'a',encoding="utf-8")
         file1.write(text)
