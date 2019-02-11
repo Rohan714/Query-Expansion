@@ -68,5 +68,6 @@ while(True):
     address="C:\\Users\\DELL\\Desktop\\Project\\Bing\\QueryLinks\\"+query+".txt"
     parseLink(query, address, "Bing")
     
-    
+    address="C:\\Users\\DELL\\Desktop\\Project\\Duckduckgo\\QueryLinks\\"+query+".txt"
+    parseLink(query, address, "Duckduckgo")
     
